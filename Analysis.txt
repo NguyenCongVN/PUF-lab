@@ -1,0 +1,3 @@
+----- Multiplexer 2x1 : Chọn một tín hiệu từ nhiều tín hiệu đầu vào dựa trên S.
+----- uart_rx : khi nhận xong thì o_rx_dv sẽ có tín hiệu cao trong vào 1 chu kì clock
+----- uart_tx : khi gửi xong thì o_Tx_done sẽ có tín hiệu cao trong vào 1 chu kì clock

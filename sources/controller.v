@@ -45,16 +45,20 @@ module controller(
     
     assign tx_output = tx_data[7:0];
     
-    uart_rx URX(clk, rx, rx_valid, rx_input);
-    uart_tx UTX(clk, tx_valid, tx_output, tx_active, tx, tx_ready);
-    
+    uart_rx URX(clk, rx, rx_valid, rx_input); // rx -> data in bit
+    // rx_input -> data received 8 bit.
+    // rx_valid -> received done.
+    uart_tx UTX(clk, tx_valid, tx_output, tx_active, tx, tx_ready); // tx_ready : tranmit done and ready tranmit again
+    // tx_output -> data to tranmit.
+    // tx_valid -> there's data get.
+    // tx_active -> tranmit done not ready tranmit again.
     reg [63:0]challenge;
     wire [63:0]response;
     reg [20:0]response_counter;
     reg preset = 0;
     reg signal = 0;
 
-    arbiterpuf A(signal, challenge, response);
+    arbiterpuf A(signal, challenge, response); // Signal = input as A and B in Mux for what????
     
     always @(posedge clk) begin
         if (rst) begin
@@ -64,19 +68,19 @@ module controller(
         
         //Load in a byte from the rx when rx_valid goes high
         if (~prev_rx_valid && rx_valid) begin
-            rx_data <= (rx_data << 8) | rx_input;
+            rx_data <= (rx_data << 8) | rx_input; // shift and save byte to reg
             in_byte_count <= in_byte_count + 1;
             
             //Run the data through the PUF when 8 bytes have been received
             if (in_byte_count == 7) begin
                 challenge <= rx_data;
                 response_counter <= 0;
-                preset <= 1;
+                preset <= 1; // for what??
                 signal <= 0;
             end
         end
         
-        prev_rx_valid <= rx_valid;
+        prev_rx_valid <= rx_valid; // save prev_rx_valid to check one cycle clock.
 
         //Send the next byte over the tx when the tx_active goes low
         if (prev_tx_active && ~tx_active) begin
@@ -91,7 +95,7 @@ module controller(
         
         prev_tx_active <= tx_active;
         
-        if (preset) begin
+        if (preset) begin // for first time send 8 bytes ????
             response_counter <= response_counter + 1;
             
             if (response_counter == 16'hFFFF) begin
