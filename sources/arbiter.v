@@ -30,7 +30,7 @@
     wire [63:0]WA;
     wire [63:0]WB;
     
-    arbel A0(X, Y, C[0], WA[0], WB[0]);
+    arbel A0(X, Y, C[0], WA[0], WB[0]); // Select line C[] value is matter if X,Y = 1????
     arbel A1(WA[0], WB[0], C[1], WA[1], WB[1]);
     arbel A2(WA[1], WB[1], C[2], WA[2], WB[2]);
     arbel A3(WA[2], WB[2], C[3], WA[3], WB[3]);

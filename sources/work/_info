@@ -1,0 +1,262 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/LapTrinhPhanCung/PUF-lab/sources
+vabriter
+Z1 !s110 1653040474
+!i10b 1
+!s100 im7mZgWUdE:8oBO;V]dm20
+I0`KD;6^Oi>;j7V0UMcG^K0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1648622628
+8D:/LapTrinhPhanCung/PUF-lab/sources/abriter.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/abriter.v
+Z4 L0 23
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1653040473.000000
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/abriter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/abriter.v|
+!i113 1
+Z7 o-work work
+Z8 tCvgOpt 0
+varbel
+R1
+!i10b 1
+!s100 Y=9b0bU_[k;RBQIYmMQLC2
+IGeRVE2ll_?GCXkK=[iJSg2
+R2
+R0
+w1652889815
+8D:/LapTrinhPhanCung/PUF-lab/sources/arbel.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/arbel.v
+R4
+R5
+r1
+!s85 0
+31
+Z9 !s108 1653040474.000000
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/arbel.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/arbel.v|
+!i113 1
+R7
+R8
+varbiter
+R1
+!i10b 1
+!s100 gWFZ38?F5KC2HO?z3F?fF1
+IjNaL6J4B4m77D9c[hh4_g3
+R2
+R0
+R3
+8D:/LapTrinhPhanCung/PUF-lab/sources/arbiter.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/arbiter.v
+R4
+R5
+r1
+!s85 0
+31
+R9
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/arbiter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/arbiter.v|
+!i113 1
+R7
+R8
+varbiterpuf
+R1
+!i10b 1
+!s100 <A5:jbQ4NHHC8?3if^<862
+Ijf>k6XkVi2>>A:W?o@0bV3
+R2
+R0
+w1652889860
+8D:/LapTrinhPhanCung/PUF-lab/sources/arbiterpuf.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/arbiterpuf.v
+R4
+R5
+r1
+!s85 0
+31
+R9
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/arbiterpuf.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/arbiterpuf.v|
+!i113 1
+R7
+R8
+vcontroller
+R1
+!i10b 1
+!s100 @oW^Sm<B9AC1ThdU@lUR]2
+IDB1=RPEDf=;d<Of7]0U]P3
+R2
+R0
+w1653008761
+8D:/LapTrinhPhanCung/PUF-lab/sources/controller.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/controller.v
+R4
+R5
+r1
+!s85 0
+31
+R9
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/controller.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/controller.v|
+!i113 1
+R7
+R8
+vcontroller_simple
+R1
+!i10b 1
+!s100 _BB9<?<J@BSJAgYW0zEg;1
+IRlKdi=iFhGRa4NUlo]@jE3
+R2
+R0
+w1653039541
+8D:/LapTrinhPhanCung/PUF-lab/sources/controller_simple.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/controller_simple.v
+R4
+R5
+r1
+!s85 0
+31
+R9
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/controller_simple.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/controller_simple.v|
+!i113 1
+R7
+R8
+vcontroller_simple_tb
+R1
+!i10b 1
+!s100 [Ld=C@Z_gVIK=Rg=YX44e2
+Im1OKPeK641R:e5SM`5Vm32
+R2
+R0
+w1653038667
+8D:/LapTrinhPhanCung/PUF-lab/sources/controller_simple_tb.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/controller_simple_tb.v
+L0 4
+R5
+r1
+!s85 0
+31
+R9
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/controller_simple_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/controller_simple_tb.v|
+!i113 1
+R7
+R8
+vcontroller_tb
+R1
+!i10b 1
+!s100 L05@okkTh1XAj1@AkEHzD0
+I38o[HXAc?XI?m:D`za>JA0
+R2
+R0
+w1652888196
+8D:/LapTrinhPhanCung/PUF-lab/sources/controller_tb.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/controller_tb.v
+L0 4
+R5
+r1
+!s85 0
+31
+R9
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/controller_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/controller_tb.v|
+!i113 1
+R7
+R8
+vdflipflop
+R1
+!i10b 1
+!s100 ghNNh[<UC4CQe@K5ZK0V;0
+InZVJPR09V5mjG1a46XXF62
+R2
+R0
+R3
+8D:/LapTrinhPhanCung/PUF-lab/sources/dflipflop.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/dflipflop.v
+R4
+R5
+r1
+!s85 0
+31
+R9
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/dflipflop.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/dflipflop.v|
+!i113 1
+R7
+R8
+vmux2x1
+!s110 1653040473
+!i10b 1
+!s100 ;H845HE5N0K0ihWfRHF843
+IB4jE;bIJeC3n[?J6XDeOQ3
+R2
+R0
+w1652144659
+8D:/LapTrinhPhanCung/PUF-lab/sources/2x1mux.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/2x1mux.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/2x1mux.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/2x1mux.v|
+!i113 1
+R7
+R8
+vuart_rx
+R1
+!i10b 1
+!s100 hnN`KgF8E43U4d3oRCEN60
+I__DA4KYR7TgRS:9`izh:00
+R2
+R0
+w1652888771
+8D:/LapTrinhPhanCung/PUF-lab/sources/uart_rx.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/uart_rx.v
+Z10 L0 14
+R5
+r1
+!s85 0
+31
+R9
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/uart_rx.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/uart_rx.v|
+!i113 1
+R7
+R8
+vuart_tx
+R1
+!i10b 1
+!s100 ;02Eg255oLC90L_G5<zRV3
+IL_jg45KFl6EIP=JQ1ngkC1
+R2
+R0
+R3
+8D:/LapTrinhPhanCung/PUF-lab/sources/uart_tx.v
+FD:/LapTrinhPhanCung/PUF-lab/sources/uart_tx.v
+R10
+R5
+r1
+!s85 0
+31
+R9
+!s107 D:/LapTrinhPhanCung/PUF-lab/sources/uart_tx.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/LapTrinhPhanCung/PUF-lab/sources/uart_tx.v|
+!i113 1
+R7
+R8

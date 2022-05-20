@@ -49,21 +49,21 @@ module uart_rx
   always @(posedge i_Clock)
     begin
        
-      case (r_SM_Main)
+      case (r_SM_Main) // start at idle
         s_IDLE :
           begin
             r_Rx_DV       <= 1'b0;
             r_Clock_Count <= 0;
             r_Bit_Index   <= 0;
              
-            if (r_Rx_Data == 1'b0)          // Start bit detected
-              r_SM_Main <= s_RX_START_BIT;
+            if (r_Rx_Data == 1'b0)          // Start bit detected.
+              r_SM_Main <= s_RX_START_BIT; // change to start_bit machine state.
             else
-              r_SM_Main <= s_IDLE;
+              r_SM_Main <= s_IDLE; // keep idle state machine.
           end
          
         // Check middle of start bit to make sure it's still low
-        s_RX_START_BIT :
+        s_RX_START_BIT : // In start_bit state.
           begin
             if (r_Clock_Count == (CLKS_PER_BIT-1)/2)
               begin

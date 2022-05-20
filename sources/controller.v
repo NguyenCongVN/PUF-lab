@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+// `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -52,6 +52,10 @@ module controller(
     // tx_output -> data to tranmit.
     // tx_valid -> there's data get.
     // tx_active -> tranmit done not ready tranmit again.
+    
+    
+    
+    
     reg [63:0]challenge;
     wire [63:0]response;
     reg [20:0]response_counter;

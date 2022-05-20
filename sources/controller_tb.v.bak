@@ -1,0 +1,29 @@
+
+
+
+`define clk_period 10
+
+module controller_tb ();
+    
+    reg clk;
+    reg rx;
+    wire tx;
+    reg[7:0] rx_data;
+    integer count;
+    
+    
+    
+    // Generate Clock signal
+    initial clk                    = 1'b1;
+    initial rx_data                = 8'b01101001;
+    initial count                  = 0;
+    // always #(`clk_period/2) clk = ~clk;
+    
+    controller(clk, rx, tx); 
+    
+    always @(`clk_period/2) begin
+        clk   = ~clk;
+        rx    = rx_data[count];
+        count = count + 1;
+    end
+endmodule

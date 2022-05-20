@@ -21,7 +21,7 @@
 
 
 (* keep_hierarchy = "yes" *) module arbel(
-    input X,
+    input X, // if x , y = 0 -> W = 0
     input Y,
     input C,
     output W,
@@ -30,11 +30,20 @@
     
     wire W1, W2;
     wire Z1, Z2;
+
+
+
+    // Truth Table Mux2x1 -> X-Y-C-Result if C = 0 -> Get X
+    // if C = 1 -> Get Y.
+    //
+    //
+    //
+    //
     
-    mux2x1 M1(X, Y, C, W1);
-    mux2x1 M2(Y, X, C, Z1);
+    mux2x1 M1(X, Y, C, W1); // W1 -> output, X -> S0 , Y -> S1 , C -> S
+    mux2x1 M2(Y, X, C, Z1); // 
     
-    not N1(W2, W1);
+    not N1(W2, W1); // Why keep same value???
     not N2(W, W2);
     not N7(Z2, Z1);
     not N8(Z, Z2);
