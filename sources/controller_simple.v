@@ -1,4 +1,4 @@
-// `timescale 1ns / 1ps
+`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company:
 // Engineer:
@@ -20,129 +20,88 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module controller_simple(input clk,
-                         output responseSendOut);
+module controller_simple(input CLOCK_50,
+                         input [3:0] KEY,
+                         input [17:0] SW,
+                         output [6:0] HEX0,
+                         HEX1,
+                         HEX2,
+                         HEX3,
+                         HEX4,
+                         HEX5,
+                         HEX6,
+                         HEX7,
+                         output [8:0] LEDG,    // LED Green[8:0]
+                         output [23:0] LEDR,   // LED Red[17:0]
+                         inout [35:0] GPIO_0);
     
     reg rst = 1;
-    
-    reg [63:0] tx_data;
-    wire [7:0] tx_output;
-    reg tx_valid = 0;
-    wire tx_active;
-    reg prev_tx_active = 0;
-    wire tx_ready;
-    reg [63:0] rx_data;
-    wire [7:0] rx_input;
-    wire rx_valid;
-    reg prev_rx_valid = 0;
-    reg rx_ready      = 1;
-    
-    reg [2:0]in_byte_count  = 0;
-    reg [2:0]out_byte_count = 0;
-    
-    assign tx_output = tx_data[7:0];
-    
-    
-    
-    
-    // uart_rx URX(clk, rx, rx_valid, rx_input);
-    
-    /////
-    // rx -> data in bit
-    // rx_input -> data received 8 bit.
-    // rx_valid -> received done.
-    /////
-    
-    
-    // uart_tx UTX(clk, tx_valid, tx_output, tx_active, tx, tx_ready);
-    
-    /////
-    // tx_ready : tranmit done and ready tranmit again
-    // tx_output -> data to tranmit.
-    // tx_valid -> there's data get.
-    // tx_active -> tranmit done not ready tranmit again.
-    /////
-    
-    
-    
     reg [63:0]challenge; // 8 bytes
-    wire [63:0]response; // 8 bytes
-    
-    assign responseSendOut = response;
-    
-    
-    
-    // reg [20:0]response_counter; // Delay????
-    
-    
-    
-    // reg preset = 0;
-    // reg signal = 0;
-    
+    wire [7:0]response; // 8 bytes
     reg signal = 1;
     
+    reg [2:0] A0;
+    reg [2:0] A1;
+    reg [2:0] A2;
+    reg [2:0] A3;
+    reg [2:0] A4;
+    reg [2:0] A5;
+    reg [2:0] A6;
+    reg [2:0] A7;
     
     arbiterpuf A(signal, challenge, response); // Signal = input as A and B in Mux for what????
-
+    
+    // set all inout ports to tri-state
+    assign GPIO_0 = 36'hzzzzzzzzz;
+    // Connect register to red LEDs
+    assign LEDR[2:0]   = A0;
+    assign LEDR[5:3]   = A1;
+    assign LEDR[8:6]   = A2;
+    assign LEDR[11:9]  = A3;
+    assign LEDR[14:12] = A4;
+    assign LEDR[17:15] = A5;
+    assign LEDR[20:18] = A6;
+    assign LEDR[23:21] = A7;
+    // turn off green LEDs
+    assign LEDG[8:0] = 0;
+    
+    // map to 7-segment displays
+    hex_7seg dsp0(A0,HEX0);
+    hex_7seg dsp1(A1,HEX1);
+    hex_7seg dsp2(A2,HEX2);
+    hex_7seg dsp3(A3,HEX3);
+    hex_7seg dsp4(A4,HEX4);
+    hex_7seg dsp5(A5,HEX5);
+    hex_7seg dsp6(A6,HEX6);
+    hex_7seg dsp7(A7,HEX7);
+    // control (set) value of A, signal with KEY3
+    
     initial begin
-        challenge <= 64'hE5F2803E30E0B4BC;
+        // challenge        = 64'h62dfa0145403b846;
+        challenge        = 64'h19f6cf91b090ac77;
+        A0               = 3'b000;
+        A1               = 3'b000;
+        A2               = 3'b000;
+        A3               = 3'b000;
+        A4               = 3'b000;
+        A5               = 3'b000;
+        A6               = 3'b000;
+        A7               = 3'b000;
     end
-
-    always @(posedge clk) begin
-        if (rst) begin
-            rst         <= 0;
-            // tx_valid <= 1;
+    
+    always @(posedge CLOCK_50) begin
+        //Process while the PUF is working on the response
+        if (signal) begin
+            A0[0]  <= response[0];
+            A1[0]  <= response[1];
+            A2[0]  <= response[2];
+            A3[0]  <= response[3];
+            A4[0]  <= response[4];
+            A5[0]  <= response[5];
+            A6[0]  <= response[6];
+            A7[0]  <= response[7];
+            signal <= 0;
         end
-        
-        // //Load in a byte from the rx when rx_valid goes high
-        // if (~prev_rx_valid && rx_valid) begin
-        //     rx_data       <= (rx_data << 8) | rx_input; // shift and save byte to reg
-        //     in_byte_count <= in_byte_count + 1;
-        
-        //     //Run the data through the PUF when 8 bytes have been received
-        //     if (in_byte_count == 7) begin
-        //         challenge        <= rx_data;
-        //         response_counter <= 0;
-        //         preset           <= 1; // make delay after receive a byte.
-        //         signal           <= 0;
-        //     end
-        // end
-        
-        // prev_rx_valid <= rx_valid; // save prev_rx_valid to check one cycle clock.
-        
-        // //Send the next byte over the tx when the tx_active goes low
-        // if (prev_tx_active && ~tx_active) begin
-        //     tx_data        <= (tx_data >> 8) + 1;
-        //     out_byte_count <= out_byte_count - 1;
-        
-        //     //Stop transmitting after sending all data
-        //     if (out_byte_count == 0) begin
-        //         tx_valid <= 0;
-        //     end
-        // end
-        
-        // prev_tx_active <= tx_active;
-        
-        // if (preset) begin //
-        //     response_counter <= response_counter + 1;
-        //     if (response_counter == 16'hFFFF) begin
-        //         response_counter = 0; // reset delay timeout.
-        //         signal <= 1; // set signal to make respone from PUF over the UART.
-        //         preset <= 0; // end of preset.
-        //     end
-        // end
-        // //Process while the PUF is working on the response
-        // if (signal) begin
-        //     response_counter <= response_counter + 1;
-        
-        //     //After a delay, send the result from the PUF back over the UART
-        //     if (response_counter == 16'hFFFF) begin
-        //         tx_data        <= response;
-        //         signal         <= 0;
-        //         out_byte_count <= 7;
-        //         tx_valid       <= 1;
-        //     end
-        // end
-        
     end
+    
 endmodule
